@@ -73,7 +73,7 @@ resource "aws_ecs_task_definition" "app_task" {
             "awslogs-stream-prefix": "ecs"
           }
       }
-  ]
+  }
   DEFINITION
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
