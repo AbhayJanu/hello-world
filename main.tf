@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "app_task" {
   container_definitions    = <<DEFINITION
   [
     {
-      "name": "hello-world-container",
+      "name": "hello-world",
       "image": "${aws_ecr_repository.ecr_repo.repository_url}",
       "essential": true,
       "portMappings": [
@@ -65,8 +65,7 @@ resource "aws_ecs_task_definition" "app_task" {
         }
       ],
       "logConfiguration": {
-          "logDriver": "awslogs",
-          "options": {
+            "options": {
             "awslogs-group": "${var.log_group}",
             "awslogs-region": "${var.aws_region}",
             "awslogs-stream-prefix": "ecs"
