@@ -31,38 +31,41 @@ jobs:
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.14.3
-          tf_actions_subcommand: 'init'
-          tf_actions_working_dir: '.'
-          tf_actions_comment: true
+        run: terraform init
+       # uses: hashicorp/terraform-github-actions@master
+      #with:
+        #  tf_actions_version: 0.14.3
+         # tf_actions_subcommand: 'init'
+         # tf_actions_working_dir: '.'
+          #tf_actions_comment: true
 
 
       - name: Terraform plan
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.14.3
-          tf_actions_subcommand: 'plan'
-          tf_actions_working_dir: '.'
-          tf_actions_comment: true
+        run: terraform plan
+        #uses: hashicorp/terraform-github-actions@master
+        #with:
+          #tf_actions_version: 0.14.3
+          #tf_actions_subcommand: 'plan'
+          #tf_actions_working_dir: '.'
+          #tf_actions_comment: true
 
 
       - name: Terraform apply
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.14.3
-          tf_actions_subcommand: 'apply'
-          tf_actions_working_dir: '.'
-          tf_actions_comment: true
-          args: '-auto-approve'
+        run: terraform apply --auto-approve
+        #uses: hashicorp/terraform-github-actions@master
+        #with:
+          #tf_actions_version: 0.14.3
+          #tf_actions_subcommand: 'apply'
+          #tf_actions_working_dir: '.'
+          #tf_actions_comment: true
+          #args: '-auto-approve'
 
       - name: Terraform destroy
-        if: ${{ github.event.inputs.terraform_action == 'destroy' }}
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.14.3
-          tf_actions_subcommand: ${{ github.event.inputs.terraform_action }}
-          tf_actions_working_dir: '.'
-          tf_actions_comment: true
-          args: '-auto-approve'
+      #if: ${{ github.event.inputs.terraform_action == 'destroy' }}
+       # uses: hashicorp/terraform-github-actions@master
+       # with:
+        #  tf_actions_version: 0.14.3
+         # tf_actions_subcommand: ${{ github.event.inputs.terraform_action }}
+         # tf_actions_working_dir: '.'
+         # tf_actions_comment: true
+         # args: '-auto-approve'
