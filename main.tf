@@ -74,6 +74,7 @@ resource "aws_ecs_task_definition" "app_task" {
           }
       }
   }
+]
   DEFINITION
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
