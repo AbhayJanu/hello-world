@@ -60,7 +60,7 @@ jobs:
           #tf_actions_comment: true
           #args: '-auto-approve'
 
-      - name: Terraform destroy
+      #- name: Terraform destroy
       #if: ${{ github.event.inputs.terraform_action == 'destroy' }}
        # uses: hashicorp/terraform-github-actions@master
        # with:
