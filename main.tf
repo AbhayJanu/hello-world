@@ -70,7 +70,8 @@ resource "aws_ecs_task_definition" "app_task" {
             "awslogs-group": "${var.log_group}",
             "awslogs-region": "${var.aws_region}",
             "awslogs-stream-prefix": "ecs"
-    }
+          }
+      }
   ]
   DEFINITION
   requires_compatibilities = ["FARGATE"]
