@@ -20,8 +20,7 @@ locals {
 
   dkr_build_cmd = <<-EOT
         aws ${local.ecr_repo} get-login-password --region ${var.aws_region} |docker login --username AWS --password-stdin ${local.ecr_reg}
-        docker build -t ${local.ecr_repo}:${local.image_tag} -f Dockerfile .
-        docker tag ${local.ecr_repo}:${local.image_tag} ${local.ecr_reg}
+        docker build -t ${local.ecr_reg}/${local.ecr_repo}:${local.image_tag} -f Dockerfile .
         docker push ${local.ecr_reg}/${local.ecr_repo}:${local.image_tag}
     EOT
 }
