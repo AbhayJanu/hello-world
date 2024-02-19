@@ -235,13 +235,6 @@ resource "aws_ecs_service" "app_service" {
 output "app_url" {
   value = aws_alb.application_load_balancer.dns_name
 }
-module "sns-topic" {
-  source = "./sns-topic/"
-}
-
-module "log-group" {
-  source = "./log-group/"
-}
 
 
 
