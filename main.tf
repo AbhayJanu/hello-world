@@ -1,4 +1,5 @@
 terraform {
+    required_version = 0.11
     required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -81,7 +82,7 @@ resource "aws_ecs_task_definition" "app_task" {
   network_mode             = "awsvpc"
   memory                   = 512
   cpu                      = 256
-  execution_role_arn       = "aws_iam_role.ecsTaskExecutionRole.arn"
+  execution_role_arn       = "${aws_iam_role.ecsTaskExecutionRole.arn}"
 }
 
 resource "aws_iam_role" "ecsTaskExecutionRole" {
