@@ -6,8 +6,9 @@ terraform {
     }
   }
 }
+
 provider "aws" {
-  region  = var.aws_region
+  region  = var.aws_region  #aws region
 }
 locals {
   aws_account = "890213754093"
