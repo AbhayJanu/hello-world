@@ -67,6 +67,7 @@ resource "aws_ecs_task_definition" "app_task" {
       "memory": 512,
       "cpu": 256,
       "logConfiguration": {
+            "logDriver": "awslogs"
             "options": {
             "awslogs-group": "${var.log_group}",
             "awslogs-region": "${var.aws_region}",
